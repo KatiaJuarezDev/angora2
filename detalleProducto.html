@@ -3,33 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Producto</title>
+    <title>Angora Sport Shop - Detalle de Producto</title>
+    <link rel="stylesheet" href="menu_principal.css">
     <link rel="stylesheet" href="css/detalleProducto.css">
+    <link rel="icon" href="imagenes/angoraFavicon.png" type="image/x-icon">
 </head>
 <body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="contenedor_nav">
+                <a href="index.html">
+                    <img id="logo" src="imagenes/angora_logo.png" alt="Logotipo de Angora Sport Shop">
+                </a>
+                <div class="contenedor_menu">
+                    <ul class="menu_nav">
+                        <li class="item_nav"><a href="#" class="item_link"><i>Men's</i></a></li>
+                        <li class="item_nav"><a href="#" class="item_link"><i>Women's</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contenedor_perfil">
+                <div id="contenedor_buscar">
+                    <input type="text" name="buscar" id="buscar" placeholder="Buscar">
+                </div>
+                <a href="login.html"><img src="imagenes/login.png" alt="Login"></a>
+                <a href="#"><img src="imagenes/corazon.png" alt="Lista de Deseos"></a>
+                <a href="#"><img src="imagenes/bolsa_compras.png" alt="Compras"></a>
+            </div>
+        </nav>
+    </header>
 
-<div class="product-detail">
-    <div class="product-image">
-        <img src="imagenes/top1.png" alt="Producto de ropa de gimnasio">
-    </div>
-
-    <div class="product-info">
-        <h1 class="product-title">Leggings de Gimnasio</h1>
-        <p class="product-price">$29.99</p>
-
-        <div class="product-sizes">
-            <label for="sizes">Tallas disponibles:</label>
-            <select id="sizes">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-            </select>
+    <!-- Detalle de Producto -->
+    <div class="product-detail">
+        <div class="product-image">
+            <img src="imagenes/top1.png" alt="Producto de ropa de gimnasio">
         </div>
 
-        <button class="add-to-cart">Agregar al carrito</button>
+        <div class="product-info">
+            <h1 class="product-title">Leggings de Gimnasio</h1>
+            <p class="product-price">$29.99</p>
+
+            <div class="product-sizes">
+                <label for="sizes">Tallas disponibles:</label>
+                <select id="sizes">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
     </div>
-</div>
+
+    <!-- Footer -->
+<footer>
+    <p>&copy; Angora2024</p>
+</footer>
+
 
 </body>
 </html>

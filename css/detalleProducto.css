@@ -1,81 +1,121 @@
-* {
+/* Reset default styling */
+body, h1, p, button, select {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-body {
+/* Navbar styles */
+header nav {
+    background-color: #ffffff; /* Cambiado a blanco */
+    color: #333;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+.contenedor_nav {
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+}
+
+.item_nav .item_link {
+    color: #333;
+    text-decoration: none;
+}
+
+.contenedor_perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Product detail section */
 .product-detail {
     display: flex;
-    flex-direction: row; /* Cambiado a fila */
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #fff;
-    width: 800px; /* Aumentamos el ancho para dar más espacio */
-    max-width: 90vw;
-}
-
-.product-image {
-    flex: 1; /* Imagen ocupará el 50% del contenedor */
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 40px auto; /* Añadido margen superior */
+    gap: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
 .product-image img {
-    width: 100%;
-    height: 100%; /* Ajustamos altura para ocupar todo el espacio */
-    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
 }
 
 .product-info {
-    flex: 1; /* Información ocupará el otro 50% del contenedor */
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 400px;
 }
 
 .product-title {
-    font-size: 2em;
+    font-size: 28px;
+    color: #333;
     margin-bottom: 10px;
-    color: #21325E;
 }
 
 .product-price {
-    font-size: 1.5em;
-    color: #FFCE00;
+    font-size: 24px;
+    color: #888;
     margin-bottom: 20px;
 }
 
-.product-sizes {
-    margin-bottom: 20px;
+.product-sizes label {
+    font-size: 16px;
+    color: #333;
 }
 
-#sizes {
-    padding: 10px;
-    font-size: 1.1em;
-    color: #3E497A;
+.product-sizes select {
+    margin-left: 10px;
+    padding: 5px;
 }
 
 .add-to-cart {
-    background-color: #21325E;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
     color: #fff;
-    padding: 15px 25px;
+    background-color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
-    margin-top: 20px;
 }
 
 .add-to-cart:hover {
-    background-color: #3E497A;
+    background-color: #555;
+}
+
+
+/*diseño de footer*/
+footer {
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333; /* Color de texto oscuro */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    border-top: 1px solid #ddd; /* Línea sutil en la parte superior */
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
 }
