@@ -1,0 +1,55 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Asegúrate de que esta fuente esté enlazada */
+    background-color: #F0F0F0; /* Color de fondo */
+    color: #3E497A; /* Color del texto */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #21325E; /* Color del navbar */
+    padding: 15px;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #F1D00A; /* Color de los enlaces */
+    text-decoration: none;
+}
+
+.titulo-mujeres h2 {
+    font-size: 28px;
+    color: #21325E; /* Cambia este color según tu paleta */
+}
+
+.imagenes-ropa {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.ropa {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.ropa:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ropa img {
+    width: 100%;
+    height: auto;
+}
