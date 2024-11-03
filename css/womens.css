@@ -28,28 +28,39 @@ body {
 .titulo-mujeres h2 {
     font-size: 28px;
     color: #21325E; /* Cambia este color según tu paleta */
+    text-align: center; /* Centrar el título, opcional */
+    margin-top: 2rem; /* Espacio superior */
 }
 
 .imagenes-ropa {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    display: block; /* Cambiado de grid a block para usar la media query */
+    
+    @media (min-width: 762px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+        gap: 20px; /* Espacio entre las imágenes */
+        justify-content: center; /* Centrar el grid en la página */
+        margin: 0 auto; /* Centrar el contenedor */
+        width: 90%; /* Ajustar el ancho */
+    }
 }
 
 .ropa {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    padding: 10px;
+    padding: 0; /* Eliminar el padding para que la imagen ocupe todo el espacio */
     transition: box-shadow 0.3s ease;
+    border-radius: 0; 
+    overflow: hidden; /* Asegurarse de que no haya desbordamiento */
+}
+
+.ropa img {
+    width: 100%; /* Hacer que la imagen ocupe todo el ancho del contenedor */
+    height: 100%; /* Hacer que la imagen ocupe todo el alto del contenedor */
+    object-fit: cover; /* Ajustar la imagen para que cubra el contenedor sin distorsionarse */
+    border-radius: 0; 
 }
 
 .ropa:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.ropa img {
-    width: 100%;
-    height: auto;
 }
