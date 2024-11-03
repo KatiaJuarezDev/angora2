@@ -111,6 +111,15 @@ nav{
     margin-top: 3rem;
 }
 
+.seccionMens{
+    background-image: url('../imgMens/imgs.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 45rem;
+    margin-top: 3rem;
+}
+
 .texto {
     position: absolute;
     top: 50%;
