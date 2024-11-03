@@ -75,6 +75,15 @@
 
 }
 
+.seccion2{
+    background-image: url('../imgWomens/bannerAuras.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 30rem;
+    margin-top: 8rem;
+}
+
 .text {
     padding-top: 5rem;
     padding-left: 6rem;
