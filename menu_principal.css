@@ -102,6 +102,15 @@ nav{
     object-fit: cover;
 }
 
+.seccion0{
+    background-image: url('../imgWomens/bannerWomens.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 45rem;
+    margin-top: 3rem;
+}
+
 .texto {
     position: absolute;
     top: 50%;
