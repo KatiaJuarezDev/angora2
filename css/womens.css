@@ -1,66 +1,173 @@
 body {
-    font-family: 'Poppins', sans-serif; /* Asegúrate de que esta fuente esté enlazada */
-    background-color: #F0F0F0; /* Color de fondo */
-    color: #3E497A; /* Color del texto */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.navbar {
-    background-color: #21325E; /* Color del navbar */
-    padding: 15px;
+nav{
+    background-color: #ffffff;
+    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
-.nav-links {
-    list-style: none;
+.contenedor_nav{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    padding: 0 20px;
 }
 
-.nav-links li {
-    display: inline;
+.contenedor_menu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu_nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.item_nav{
     margin: 0 15px;
+    color: #000000;
 }
 
-.nav-links a {
-    color: #F1D00A; /* Color de los enlaces */
+.item_link{
+    color: #000000;
     text-decoration: none;
+    font-size: 25px;
+    transition: color 0.3s ease;
 }
 
-.titulo-mujeres h2 {
-    font-size: 28px;
-    color: #21325E; /* Cambia este color según tu paleta */
-    text-align: center; /* Centrar el título, opcional */
-    margin-top: 2rem; /* Espacio superior */
+.item_link:hover{
+    color: #000000;
+    text-decoration: underline;
 }
 
-.imagenes-ropa {
-    display: block; /* Cambiado de grid a block para usar la media query */
-    
-    @media (min-width: 762px) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
-        gap: 20px; /* Espacio entre las imágenes */
-        justify-content: center; /* Centrar el grid en la página */
-        margin: 0 auto; /* Centrar el contenedor */
-        width: 90%; /* Ajustar el ancho */
+#logo{
+    width: 150px;
+}
+#logo:hover{
+    transform: scale(1.10);
+    transition: transform 0.4s;
+}
+
+#contenedor_buscar{
+    padding-right: 10px;
+}
+
+.contenedor_perfil {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 10px;
+}
+
+.contenedor_perfil input {
+    width: 250px;
+    padding: 10px 10px;
+    padding-left: 45px;
+    border: 2px solid #185a6b;
+    border-radius: 5px;
+    background: url('imagenes/buscar.png') no-repeat 7px center;
+    background-size: 27px 27px;
+}
+
+.contenedor_perfil img {
+    text-decoration: none;
+    padding-right: 15px;
+    width: 30px;
+}
+.contenedor_perfil img:hover {
+    transform: scale(1.10);
+    transition: transform 0.4s;
+}
+
+/*Banner*/
+.contenedor_imagen {
+    width: 100%;
+    max-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+.contenedor_imagen img {
+    width: 100%;
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+    object-fit: contain; /* Asegura que se vean todas las proporciones sin recortar */
+}
+
+
+
+.texto {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+}
+
+.texto h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.texto p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.texto button {
+    padding: 15px 30px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.texto button:hover{
+    transform: scale(1.10);
+    transition: transform 0.4s;
+}
+
+.texto button:first-child {
+    background-color: black;
+    color: white;
+}
+
+.texto button:last-child {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.contenedor_banner {
+    img {
+        height: 593px;
+        width: 1519.5px;
     }
 }
 
-.ropa {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    padding: 0; /* Eliminar el padding para que la imagen ocupe todo el espacio */
-    transition: box-shadow 0.3s ease;
-    border-radius: 0; 
-    overflow: hidden; /* Asegurarse de que no haya desbordamiento */
-}
+hr {
+    margin-top: 2rem;
+    width: 95%;
+    height: 0.06rem;
+    background-color: #000000;
 
-.ropa img {
-    width: 100%; /* Hacer que la imagen ocupe todo el ancho del contenedor */
-    height: 100%; /* Hacer que la imagen ocupe todo el alto del contenedor */
-    object-fit: cover; /* Ajustar la imagen para que cubra el contenedor sin distorsionarse */
-    border-radius: 0; 
-}
-
-.ropa:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    @media (min-width: 762px ) {
+        width: 95%;
+    }
 }
