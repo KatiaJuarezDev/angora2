@@ -93,6 +93,25 @@
     margin-top: 8rem;
 }
 
+.seccion3{
+    background-image: url('../imgMens/bannerMensFinal.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 30rem;
+    margin-top: 8rem;
+
+}
+
+.seccion4{
+    background-image: url('../imgMens/bannerMens4.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 30rem;
+    margin-top: 8rem;
+}
+
 .text {
     padding-top: 5rem;
     padding-left: 6rem;
