@@ -35,14 +35,14 @@
     </header>
 
     <!-- Detalle de Producto -->
-    <div class="product-detail">
+    <div class="product-detail" id="product-detail">
         <div class="product-image">
-            <img src="imagenes/top1.png" alt="Producto de ropa de gimnasio">
+            <img id="product-image" src="" alt="Producto de ropa de gimnasio">
         </div>
 
         <div class="product-info">
-            <h1 class="product-title">Leggings de Gimnasio</h1>
-            <p class="product-price">$29.99</p>
+            <h1 id="product-title" class="product-title"></h1>
+            <p id="product-price" class="product-price"></p>
 
             <div class="product-sizes">
                 <label for="sizes">Tallas disponibles:</label>
@@ -59,10 +59,49 @@
     </div>
 
     <!-- Footer -->
-<footer>
-    <p>&copy; Angora2024</p>
-</footer>
+    <footer>
+        <p>&copy; Angora2024</p>
+    </footer>
+
+    <script>
+        // Obtener el parámetro ID de la URL
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+console.log(productId); // Verificar que el ID se esté capturando correctamente
+
+// Datos de productos en JSON
+const products = {
+    1: {
+        name: "Top",
+        price: "$20.00",
+        image: "imgWomens/1.png",
+        description: "Top de excelente calidad."
+    },
+    2: {
+        name: "T-Shirt Negra",
+        price: "$35.00",
+        image: "imgWomens/2.png",
+        description: "Camiseta negra clásica, ideal para cualquier ocasión."
+    },
+    3: {
+        name: "T-Shirt Azul",
+        price: "$35.00",
+        image: "imgWomens/3.png",
+        description: "Camiseta azul de alta calidad."
+    }
+};
 
 
+        // Mostrar los detalles del producto seleccionado
+        if (products[productId]) {
+            const product = products[productId];
+            document.getElementById("product-title").innerText = product.name;
+            document.getElementById("product-price").innerText = product.price;
+            document.getElementById("product-image").src = product.image;
+            document.getElementById("product-image").alt = product.name;
+        } else {
+            document.getElementById("product-detail").innerHTML = "<p>Producto no encontrado.</p>";
+        }
+    </script>
 </body>
 </html>
