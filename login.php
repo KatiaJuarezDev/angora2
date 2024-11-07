@@ -1,3 +1,44 @@
+<?php
+// Datos de conexión
+$host = 'localhost'; // Dirección del servidor de la base de datos
+$dbname = 'angora'; // Nombre de la base de datos
+$username = 'root'; // Usuario de la base de datos
+$password = ''; // Contraseña del usuario
+
+// Crear conexión
+$conexion = new mysqli($host, $username, $password, $dbname);
+
+// Verificar la conexión
+if ($conexion->connect_error) {
+    die("Error en la conexión: " . $conexion->connect_error);
+} else {
+    echo "Conexión exitosa";
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Verificar si se envió el formulario de login o de registro
+    if (isset($_POST['form_type']) && $_POST['form_type'] === 'login') {
+        // Procesar el formulario de Iniciar Sesión
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        
+        // Aquí puedes añadir la lógica para verificar el login en la base de datos
+        echo "Formulario de Login enviado con el correo: $email";
+    } elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
+        // Procesar el formulario de Registro
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $telefono = $_POST['telefono'];
+        $password = $_POST['password'];
+        
+        // Aquí puedes añadir la lógica para guardar los datos de registro en la base de datos
+        echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
+    }
+}
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +58,13 @@
     <header>
         <nav>
             <div class="contenedor_nav">
-                <a href="index.html">
+                <a href="index.php">
                     <img id="logo" src="imagenes/angora_logo.png" alt="Logotipo de Angora Sport Shop">
                 </a>
                 
             </div>
             <div class="contenedor_perfil">
-                <a href="login.html"> <img src="imagenes/login.png" alt="Login"> </a>
+                <a href="login.php"> <img src="imagenes/login.png" alt="Login"> </a>
                 <a href="#"> <img src="imagenes/corazon.png" alt="Lista de Deseos"> </a>
                 <a href="#"> <img src="imagenes/bolsa_compras.png" alt="Compras"> </a>
             </div>
@@ -50,15 +91,14 @@
                     </div>
                     <p>o Iniciar Sesión con una cuenta</p>
                     <form action="" class="form">
-                        
+                        <input type="hidden" name="form_type" value="login"> <!-- Identificador de formulario -->
                         <label for="email">
-                            
                             <i class='bx bx-envelope' ></i>
                             <input type="email" placeholder="Tu Correo Electronico">
                         </label for="">
                         <label for="password">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Tu Contraseña">
+                            <input type="pass   word" placeholder="Tu Contraseña">
                         </label>
                         <input type="submit" value="Iniciar Sesión">
                     </form>
@@ -75,30 +115,38 @@
                     <input type="button" value="Iniciar Sesión" id="sign-in">
                 </div>
             </div>
+
             <div class="form-information">
                 <div class="form-information-childs">
                     <h2>Crear una cuenta</h2>
                     <div class="icons">
     
                     </div>
-                    <p>o usa tu email para registrarte</p>
-                    <form action="" class="form">
-                        <label for="usuario">
+                    <form action="" class="form" method="POST">
+                        <input type="hidden" name="form_type" value="register"> <!-- Identificador de formulario --> 
+                        <label for="nombre">
                             <i class='bx bx-user'></i>
-                            <input type="text" name="usuario" id="usuario" placeholder="Nombre Completo">
+                            <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre">
+                        </label>
+                        <label for="apellido">
+                            <i class='bx bx-user'></i>
+                            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
                         </label>
                         <label for="email">
-                            
                             <i class='bx bx-envelope' ></i>
                             <input type="email" placeholder="Tu Correo Electronico">
                         </label for="">
+                        <label for="telefono">
+                            <i class='bx bx-lock-alt' ></i>
+                            <input type="tel" placeholder="Tu Telefono">
+                        </label>
+
                         <label for="password">
                             <i class='bx bx-lock-alt' ></i>
                             <input type="password" placeholder="Tu Contraseña">
                         </label>
                         <input type="submit" value="Registrarse">
                     </form>
-    
                 </div>
             </div>
         </div>
