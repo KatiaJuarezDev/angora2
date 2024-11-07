@@ -31,11 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $telefono = $_POST['telefono'];
         $password = $_POST['password'];
+
+        $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
+                VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
+        $conexion->query($sql);
         
         // Aquí puedes añadir la lógica para guardar los datos de registro en la base de datos
         echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
     }
+
+    
 }
+
+
   
 ?>
 
@@ -134,16 +142,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </label>
                         <label for="email">
                             <i class='bx bx-envelope' ></i>
-                            <input type="email" placeholder="Tu Correo Electronico">
+                            <input type="email" placeholder="Tu Correo Electronico" name="email" id="email">
                         </label for="">
                         <label for="telefono">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="tel" placeholder="Tu Telefono">
+                            <input type="tel" placeholder="Tu Telefono" name="telefono" id="telefono">
                         </label>
 
                         <label for="password">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Tu Contraseña">
+                            <input type="password" placeholder="Tu Contraseña" name="password" id="password">
                         </label>
                         <input type="submit" value="Registrarse">
                     </form>
