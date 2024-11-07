@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angora Sport Shop - Detalle de Producto</title>
+    <link rel="stylesheet" href="menu_principal.css">
+    <link rel="stylesheet" href="css/detalleProducto.css">
+    <link rel="icon" href="imagenes/angoraFavicon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="contenedor_nav">
+                <a href="index.html">
+                    <img id="logo" src="imagenes/angora_logo.png" alt="Logotipo de Angora Sport Shop">
+                </a>
+                <div class="contenedor_menu">
+                    <ul class="menu_nav">
+                        <li class="item_nav"><a href="#" class="item_link"><i>Men's</i></a></li>
+                        <li class="item_nav"><a href="#" class="item_link"><i>Women's</i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contenedor_perfil">
+                <div id="contenedor_buscar">
+                    <input type="text" name="buscar" id="buscar" placeholder="Buscar">
+                </div>
+                <a href="login.html"><img src="imagenes/login.png" alt="Login"></a>
+                <a href="#"><img src="imagenes/corazon.png" alt="Lista de Deseos"></a>
+                <a href="#"><img src="imagenes/bolsa_compras.png" alt="Compras"></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Detalle de Producto -->
+    <div class="product-detail" id="product-detail">
+        <div class="product-image">
+            <img id="product-image" src="" alt="Producto de ropa de gimnasio">
+        </div>
+
+        <div class="product-info">
+            <h1 id="product-title" class="product-title"></h1>
+            <p id="product-price" class="product-price"></p>
+
+            <div class="product-sizes">
+                <label for="sizes">Tallas disponibles:</label>
+                <select id="sizes">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+
+            <button class="add-to-cart">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Angora2024</p>
+    </footer>
+
+    <script>
+        // Obtener el parámetro ID de la URL
+const params = new URLSearchParams(window.location.search);
+const productId = params.get('id');
+console.log(productId); // Verificar que el ID se esté capturando correctamente
+
+// Datos de productos en JSON
+const products = {
+    1: {
+        name: "Top",
+        price: "$20.00",
+        image: "imagenes/top1.png",
+        description: "Top de excelente calidad."
+    },
+    2:{
+        name:"Short rosa",
+        price: "$35.00",
+        image:"imagenes/top2.png",
+        description:"Short rosa comodo y elegante"
+    },
+    3:{
+        name:"Short rosa",
+        price: "$35.00",
+        image:"imagenes/top3.png",
+        description:"Short rosa comodo y elegante"
+    },
+    4:{
+        name:"Short rosa",
+        price: "$35.00",
+        image:"imagenes/short1.png",
+        description:"Short rosa comodo y elegante"
+    },
+    5:{
+        name:"Short rosa",
+        price: "$35.00",
+        image:"imagenes/short2.png",
+        description:"Short rosa comodo y elegante"
+    },
+    6:{
+        name:"Short rosa",
+        price: "$35.00",
+        image:"imagenes/short3.png",
+        description:"Short rosa comodo y elegante"
+    }
+};
+
+
+        // Mostrar los detalles del producto seleccionado
+        if (products[productId]) {
+            const product = products[productId];
+            document.getElementById("product-title").innerText = product.name;
+            document.getElementById("product-price").innerText = product.price;
+            document.getElementById("product-image").src = product.image;
+            document.getElementById("product-image").alt = product.name;
+        } else {
+            document.getElementById("product-detail").innerHTML = "<p>Producto no encontrado.</p>";
+        }
+    </script>
+</body>
+</html>
