@@ -21,11 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Procesar el formulario de Iniciar Sesión
         $email = $_POST['email'];
         $password = $_POST['password'];
+
+        // $sql = "SELECT * FROM usuarios WHERE email = '$email' and password = '$password' ";
+
+        // $conexion->query($sql);
+
+        
         
         // Aquí puedes añadir la lógica para verificar el login en la base de datos
         echo "Formulario de Login enviado con el correo: $email";
     } elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
         // Procesar el formulario de Registro
+        $id = $_POST['id'];
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $email = $_POST['email'];
@@ -35,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
                 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
         $conexion->query($sql);
+        if($conexion) {
+            header('Location : /login.php');
+        }
         
         // Aquí puedes añadir la lógica para guardar los datos de registro en la base de datos
         echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
