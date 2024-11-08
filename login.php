@@ -43,8 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $telefono = $_POST['telefono'];
         $password = $_POST['password'];
-        $password = $_POST['password'] ?? 0;
-
+        $admin = $_POST['admin'] ?? 0;
         $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
                 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
         $conexion->query($sql);
