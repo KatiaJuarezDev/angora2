@@ -13,6 +13,9 @@ if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
 } 
 
+$alertas = [];
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Verificar si se envió el formulario de login o de registro
@@ -21,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+        
+
         // Aquí podrías hacer la verificación en la base de datos, por ejemplo:
         $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password = '$password'";
         $resultado = $conexion->query($sql);
@@ -28,13 +33,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($resultado && $resultado->num_rows > 0) {
             // Redireccionar a la página principal después de un login exitoso
             header('Location: /index.html');
-            exit();
+            
             // Asegura que el script se detenga aquí
+        }
+        else {
+            if(empty($email)) {
+                $alertas = 'El email es obligatorio';
+            }
+            
+            if(empty($password)) {
+                $alertas = 'El password es obligatorio';
+            }
+
+            if($password !== $_SESSION['password']) {
+                $alertas = 'La contraseña es incorrecta';
+            }  
+            if($email !== $_SESSION['email']) {
+                $alertas = 'Usuario no valido o inexistente';
+            }
+
+            
+            
+            if(empty($alertas)) {
+                header('Location: /login.php');
+            }
+
+            echo $alertas;
+            
         } 
-        header('Location: /login.php');
+        
 
         // Aquí puedes añadir la lógica para verificar el login en la base de datos
-        echo "Formulario de Login enviado con el correo: $email";
+       // echo "Formulario de Login enviado con el correo: $email";
     } elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
         // Procesar el formulario de Registro
         $id = $_POST['id'];
@@ -52,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         // Aquí puedes añadir la lógica para guardar los datos de registro en la base de datos
-        echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
+        //echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
     }
 
     
