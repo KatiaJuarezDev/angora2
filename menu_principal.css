@@ -122,7 +122,7 @@ nav{
 
 .texto {
     position: absolute;
-    top: 50%;
+    top: 53%;
     left: 5%;
     transform: translateY(-50%);
     color: white;
@@ -163,11 +163,11 @@ nav{
 .texto button:last-child {
     background-color: white;
     color: black;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 .contenedor_banner {
-    img {
+    video {
         height: 593px;
         width: 1519.5px;
     }
