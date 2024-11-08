@@ -13,7 +13,6 @@ if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
 } 
 
-$alertas = [];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -23,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /// Procesar el formulario de Iniciar Sesión
         $email = $_POST['email'];
         $password = $_POST['password'];
-
+        $alertas = [];
         
 
         // Aquí podrías hacer la verificación en la base de datos, por ejemplo:
@@ -35,6 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: /index.html');
             
             // Asegura que el script se detenga aquí
+            
+            
         }
         else {
             if(empty($email)) {
@@ -45,23 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $alertas = 'El password es obligatorio';
             }
 
-            if($password !== $_SESSION['password']) {
-                $alertas = 'La contraseña es incorrecta';
-            }  
-            if($email !== $_SESSION['email']) {
-                $alertas = 'Usuario no valido o inexistente';
-            }
+            // if($password !== $_POST['password']) {
+            //     $alertas = 'La contraseña es incorrecta';
+            // }  
+            
 
             
             
-            if(empty($alertas)) {
-                header('Location: /login.php');
-            }
+            // if(empty($alertas)) {
+            //     header('Location: /login.php');
+            // }
 
-            echo $alertas;
             
         } 
-        
 
         // Aquí puedes añadir la lógica para verificar el login en la base de datos
        // echo "Formulario de Login enviado con el correo: $email";
@@ -141,6 +138,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
                     </div>
                     <p>o Iniciar Sesión con una cuenta</p>
+                    <div class="alertas">
+                        <p class="alertas-p"> <?php echo $alertas ?> </p>
+                    </div>
                     <form action="" class="form" method="POST">
                         <input type="hidden" name="form_type" value="login"> <!-- Identificador de formulario -->
                         <label for="email">

@@ -302,6 +302,20 @@ nav{
 }
 
 
+/**ALERTAS**/
+
+.alertas  {
+
+    margin-top: 1rem;
+    background-color: red;
+    width: 90%;
+
+    .alertas-p {
+        color: white;
+    }
+}
+
+
 
 
 
