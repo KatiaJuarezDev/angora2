@@ -11,23 +11,28 @@ $conexion = new mysqli($host, $username, $password, $dbname);
 // Verificar la conexión
 if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
-} else {
-    echo "Conexión exitosa";
-}
+} 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     // Verificar si se envió el formulario de login o de registro
     if (isset($_POST['form_type']) && $_POST['form_type'] === 'login') {
-        // Procesar el formulario de Iniciar Sesión
+        /// Procesar el formulario de Iniciar Sesión
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // $sql = "SELECT * FROM usuarios WHERE email = '$email' and password = '$password' ";
+        // Aquí podrías hacer la verificación en la base de datos, por ejemplo:
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password = '$password'";
+        $resultado = $conexion->query($sql);
 
-        // $conexion->query($sql);
+        if ($resultado && $resultado->num_rows > 0) {
+            // Redireccionar a la página principal después de un login exitoso
+            header('Location: /index.html');
+            exit();
+            // Asegura que el script se detenga aquí
+        } 
+        header('Location: /login.php');
 
-        
-        
         // Aquí puedes añadir la lógica para verificar el login en la base de datos
         echo "Formulario de Login enviado con el correo: $email";
     } elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
@@ -38,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];
         $telefono = $_POST['telefono'];
         $password = $_POST['password'];
+        $password = $_POST['password'] ?? 0;
 
         $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
                 VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
@@ -53,8 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 }
 
-
-  
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <nav>
             <div class="contenedor_nav">
-                <a href="index.php">
+                <a href="index.html">
                     <img id="logo" src="imagenes/angora_logo.png" alt="Logotipo de Angora Sport Shop">
                 </a>
                 
@@ -108,15 +112,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
                     </div>
                     <p>o Iniciar Sesión con una cuenta</p>
-                    <form action="" class="form">
+                    <form action="" class="form" method="POST">
                         <input type="hidden" name="form_type" value="login"> <!-- Identificador de formulario -->
                         <label for="email">
                             <i class='bx bx-envelope' ></i>
-                            <input type="email" placeholder="Tu Correo Electronico">
+                            <input type="email" placeholder="Tu Correo Electronico" name="email" id="email" >
                         </label for="">
                         <label for="password">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="pass   word" placeholder="Tu Contraseña">
+                            <input type="password" placeholder="Tu Contraseña" name="password" id="password">
                         </label>
                         <input type="submit" value="Iniciar Sesión">
                     </form>

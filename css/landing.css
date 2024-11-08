@@ -65,13 +65,17 @@
     }
 }
 
-.seccion {
+.seccionMens {
+    margin: 0;
+}
+
+.seccion0 {
     background-image: url('../imagenes/cover.avif');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 30rem;
-    margin-top: 8rem;
+    margin: 0;
 
 }
 .seccion1{
