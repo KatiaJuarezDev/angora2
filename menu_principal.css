@@ -108,7 +108,7 @@ nav{
     background-position: center center;
     background-size: cover;
     height: 45rem;
-    margin-top: 3rem;
+    margin-top: 1px;
 }
 
 .seccionMens{
@@ -167,6 +167,7 @@ nav{
 }
 
 .contenedor_banner {
+    margin-top: -10px;
     video {
         height: 593px;
         width: 1519.5px;
