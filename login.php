@@ -1,9 +1,10 @@
 <?php
 // Datos de conexión
-$host = 'localhost'; // Dirección del servidor de la base de datos
-$dbname = 'angora'; // Nombre de la base de datos
-$username = 'root'; // Usuario de la base de datos
-$password = ''; // Contraseña del usuario
+$host = 'localhost';
+$dbname = 'angora';
+$username = 'root';
+$password = '';
+
 
 // Crear conexión
 $conexion = new mysqli($host, $username, $password, $dbname);
@@ -11,82 +12,77 @@ $conexion = new mysqli($host, $username, $password, $dbname);
 // Verificar la conexión
 if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
-} 
-
-$alertas = [];
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
 
-    // Verificar si se envió el formulario de login o de registro
+    // Verificar si se envió el formulario de login
     if (isset($_POST['form_type']) && $_POST['form_type'] === 'login') {
-        /// Procesar el formulario de Iniciar Sesión
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        
-
-        // Aquí podrías hacer la verificación en la base de datos, por ejemplo:
-        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND password = '$password'";
-        $resultado = $conexion->query($sql);
-
-        if ($resultado && $resultado->num_rows > 0) {
-            // Redireccionar a la página principal después de un login exitoso
-            header('Location: /index.html');
-            
-            // Asegura que el script se detenga aquí
+        // Validaciones básicas
+        if (empty($email)) {
+            $alertas[] = 'El email es obligatorio';
         }
-        else {
-            if(empty($email)) {
-                $alertas = 'El email es obligatorio';
-            }
-            
-            if(empty($password)) {
-                $alertas = 'El password es obligatorio';
-            }
 
-            if($password !== $_SESSION['password']) {
-                $alertas = 'La contraseña es incorrecta';
-            }  
-            if($email !== $_SESSION['email']) {
-                $alertas = 'Usuario no valido o inexistente';
-            }
-
-            
-            
-            if(empty($alertas)) {
-                header('Location: /login.php');
-            }
-
-            echo $alertas;
-            
-        } 
-        
-
-        // Aquí puedes añadir la lógica para verificar el login en la base de datos
-       // echo "Formulario de Login enviado con el correo: $email";
-    } elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
-        // Procesar el formulario de Registro
-        $id = $_POST['id'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $email = $_POST['email'];
-        $telefono = $_POST['telefono'];
-        $password = $_POST['password'];
-        $admin = $_POST['admin'] ?? 0;
-        $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
-                VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
-        $conexion->query($sql);
-        if($conexion) {
-            header('Location : /login.php');
+        if (empty($password)) {
+            $alertas[] = 'El password es obligatorio';
         }
-        
-        // Aquí puedes añadir la lógica para guardar los datos de registro en la base de datos
-        //echo "Formulario de Registro enviado con el nombre: $nombre $apellido";
+
+        if (empty($alertas)) {
+            // Verificar en la base de datos si el email y la contraseña son correctos
+            $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+            $resultado = $conexion->query($sql);
+
+            if ($resultado && $resultado->num_rows > 0) {
+                $usuario = $resultado->fetch_assoc();
+
+                if ($usuario['password'] === $password) {
+                    // Login exitoso: guardar la información en la sesión
+                    $_SESSION['usuario_id'] = $usuario['id'];  // Guarda el ID del usuario
+                    $_SESSION['usuario_email'] = $usuario['email']; // Guarda el email del usuario
+
+                    // Redirigir a la página principal después de un login exitoso
+                    header('Location: /index.html');
+                    exit();
+                } else {
+                    $alertas[] = 'La contraseña es incorrecta';
+                }
+            } else {
+                $alertas[] = 'El email no está registrado';
+            }
+        }
     }
 
+
+        elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
+            // Procesar el formulario de Registro
+            $id = $_POST['id'];
+            $nombre = $_POST['nombre'];
+            $apellido = $_POST['apellido'];
+            $email = $_POST['email'];
+            $telefono = $_POST['telefono'];
+            $password = $_POST['password'];
+            $admin = $_POST['admin'] ?? 0;
+            $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
+                    VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
+            $conexion->query($sql);
+            if($conexion) {
+                header('Location : /login.php');
+            }
+        
+        
+        }
+}     
+        
+        
+
+
     
-}
+
 
 ?>
 
@@ -141,6 +137,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
                     </div>
                     <p>o Iniciar Sesión con una cuenta</p>
+                    <div class="alertas">
+                        <?php if (!empty($alertas)) : ?>
+                            <?php foreach ($alertas as $alerta) : ?>
+                                <p class="alertas-p"><?php echo $alerta; ?></p>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
                     <form action="" class="form" method="POST">
                         <input type="hidden" name="form_type" value="login"> <!-- Identificador de formulario -->
                         <label for="email">
