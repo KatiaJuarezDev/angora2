@@ -118,6 +118,23 @@
 }
 
 .text {
+    padding-top: 5rem;
+    padding-left: 6rem;
+
+    p,h1 {
+        color: #ffffff;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.8rem;
+    }
+}
+
+.text1 {
     padding-top: 12rem;
     padding-left: 6rem;
 
@@ -132,6 +149,28 @@
     p {
         font-size: 1.8rem;
     }
+}
+
+.text1 button {
+    padding: 15px 30px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.text1 button:last-child {
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.text1 button:hover{
+    transform: scale(1.10);
+    transition: transform 0.4s;
 }
 
 .text button {
