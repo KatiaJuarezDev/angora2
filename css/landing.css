@@ -42,7 +42,6 @@
 
 .imagenes-ropa {
     display: block;
-
     @media (min-width: 762px) {
         display: grid;
         grid-template-columns: repeat(3,1fr);
@@ -52,12 +51,17 @@
     
     .ropa {
         margin-left: 10rem;
-        /*border: 1px solid;*/
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: border-color 0.3s ease;
+        border: 3px solid transparent;
         p {
             text-align: center;
             font-weight: 600;
         }
+    }
+
+    .ropa:hover{
+        border: 3px solid #185a6b;
     }
 
     img {
