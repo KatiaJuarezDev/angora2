@@ -9,11 +9,10 @@ body, h1, p, button, select {
 /* Navbar styles */
 header nav {
     background-color: #ffffff; /* Cambiado a blanco */
-    color: #333;
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     position: sticky;
     top: 0;
@@ -32,15 +31,14 @@ header nav {
 }
 
 .item_nav .item_link {
-    color: #333;
+   margin-right: -15px;
     text-decoration: none;
 }
 
-.contenedor_perfil {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.item_link:hover{
+    text-decoration: underline;
 }
+
 
 /* Product detail section */
 .product-detail {
@@ -94,14 +92,14 @@ header nav {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #333;
+    background-color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .add-to-cart:hover {
-    background-color: #555;
+    background-color: #185a6b;
 }
 
 
