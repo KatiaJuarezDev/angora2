@@ -201,6 +201,7 @@
 
 .seccion-marcas {
     padding-bottom: 25px;
+    padding-top: 25px;
     h1 {
         margin-top: 3rem;
         text-align: center;
@@ -227,40 +228,7 @@
     }
 }
 
-.footer {
-    
-    background-color: #000000;
 
-    hr {
-        background-color: white;
-        width: 95%;
-        height: 0.06rem;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    .redes-sociales {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-
-        .redes {
-            padding: 2rem;
-
-            img {
-                width: 3rem;
-
-                &:hover {
-                    cursor: pointer;
-                    transform: scale(1.10);
-                    transition: transform 0.4s;
-                }
-            }
-        }
-    }
-}
 
 
 

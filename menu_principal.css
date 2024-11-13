@@ -35,6 +35,7 @@ nav{
 .item_nav{
     margin: 0 30px;
     color: #000000;
+    font-weight: bold;
 }
 
 .item_link{
