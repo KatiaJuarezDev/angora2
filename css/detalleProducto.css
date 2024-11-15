@@ -195,3 +195,22 @@ footer p {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reducida */
 }
 
+/* Contenedor del ícono */
+.favorite-icon-container {
+    text-align: center; /* Centrar el ícono */
+    margin: 15px 0; /* Espaciado superior e inferior */
+}
+
+/* Estilo del ícono */
+.favorite-icon {
+    width: 40px; /* Tamaño del ícono */
+    height: 40px;
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animación suave */
+}
+
+/* Efecto hover */
+.favorite-icon:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar */
+    opacity: 0.8; /* Reduce la opacidad para un efecto visual */
+}

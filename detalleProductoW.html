@@ -263,15 +263,26 @@ const products = {
 
         // Mostrar los detalles del producto seleccionado
         if (products[productId]) {
-            const product = products[productId];
-            document.getElementById("product-title").innerText = product.name;
-            document.getElementById("product-price").innerText = product.price;
-            document.getElementById("product-image").src = product.image;
-            document.getElementById("product-image").alt = product.name;
-            document.getElementById("product-description").innerText = product.description;
-        } else {
-            document.getElementById("product-detail").innerHTML = "<p>Producto no encontrado.</p>";
-        }
+        const product = products[productId];
+        document.getElementById("product-title").innerText = product.name;
+        document.getElementById("product-price").innerText = product.price;
+        document.getElementById("product-image").src = product.image;
+        document.getElementById("product-image").alt = product.name;
+        document.getElementById("product-description").innerText = product.description;
+
+        // Agregar el ícono de favoritos dinámicamente
+        const favoriteIconContainer = document.createElement("div");
+        favoriteIconContainer.className = "favorite-icon-container";
+        favoriteIconContainer.innerHTML = `
+            <a href="favoritos.html">
+                <img src="imagenes/favorito.png" alt="" class="favorite-icon">
+            </a>
+        `;
+        // Insertar el ícono debajo de la descripción
+        document.getElementById("product-description").insertAdjacentElement("afterend", favoriteIconContainer);
+    } else {
+        document.getElementById("product-detail").innerHTML = "<p>Producto no encontrado.</p>";
+}
     </script>
 </body>
 </html>
