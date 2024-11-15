@@ -8,12 +8,12 @@ body, h1, p, button, select {
 
 /* Navbar styles */
 header nav {
-    background-color: #ffffff; /* Cambiado a blanco */
+    background-color: #ffffff;
     color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -31,14 +31,13 @@ header nav {
 }
 
 .item_nav .item_link {
-   margin-right: -15px;
+    margin-right: -15px;
     text-decoration: none;
 }
 
-.item_link:hover{
+.item_link:hover {
     text-decoration: underline;
 }
-
 
 /* Product detail section */
 .product-detail {
@@ -47,70 +46,115 @@ header nav {
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
-    max-width: 1200px;
-    margin: 40px auto; /* Añadido margen superior */
-    gap: 20px;
+    max-width: 800px; /* Reducir el ancho máximo para acercar la imagen y la descripción */
+    margin: 40px auto;
+    gap: 20px; /* Reduce el espacio entre la imagen y la descripción */
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
+.product-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centra la imagen dentro de su contenedor */
+}
+
 .product-image img {
-    width: 350px;
+    width: 450px; /* Ajusta el ancho de la imagen para que se vea más cerca */
     height: auto;
     border-radius: 8px;
 }
 
 .product-info {
+    flex: 1;
     max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
 }
 
+
+/* Estilo para el título */
 .product-title {
     font-size: 28px;
     color: #333;
     margin-bottom: 10px;
 }
 
+/* Estilo para el precio */
 .product-price {
     font-size: 24px;
     color: #888;
     margin-bottom: 20px;
 }
 
-.product-sizes label {
+/* Estilo para la descripción */
+.product-description {
     font-size: 16px;
-    color: #333;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.product-sizes select {
-    margin-left: 10px;
-    padding: 5px;
+/* Estilo para la selección de tallas */
+.size-label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
 }
 
+.product-sizes {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.size-option {
+    font-size: 16px;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.size-option:hover {
+    color: #185a6b;
+}
+
+/* Estilo del botón "Agregar a la cesta" */
 .add-to-cart {
-    margin-top: 20px;
-    padding: 10px 20px;
+    display: block;
+    width: 100%;
+    padding: 15px;
     font-size: 16px;
     color: #fff;
-    background-color: black;
+    background-color: #000;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
+    text-align: center;
 }
 
 .add-to-cart:hover {
     background-color: #185a6b;
 }
 
-
-/*diseño de footer*/
+/* Diseño de footer */
 footer {
-    background-color: #f4f4f4; /* Fondo claro */
-    color: #333; /* Color de texto oscuro */
+    background-color: #f4f4f4;
+    color: #333;
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
-    border-top: 1px solid #ddd; /* Línea sutil en la parte superior */
+    border-top: 1px solid #ddd;
     margin-top: 40px;
 }
 
