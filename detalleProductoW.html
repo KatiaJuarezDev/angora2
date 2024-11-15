@@ -6,6 +6,7 @@
     <title>Angora Sport Shop - Detalle de Producto</title>
     <link rel="stylesheet" href="menu_principal.css">
     <link rel="stylesheet" href="css/detalleProducto.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="icon" href="imagenes/angoraFavicon.png" type="image/x-icon">
 </head>
 <body>
@@ -35,7 +36,7 @@
     </header>
 
     <!-- Detalle de Producto -->
-    <div class="product-detail" id="product-detail">
+    <<div class="product-detail" id="product-detail">
         <div class="product-image">
             <img id="product-image" src="" alt="Producto de ropa de gimnasio">
         </div>
@@ -43,15 +44,16 @@
         <div class="product-info">
             <h1 id="product-title" class="product-title"></h1>
             <p id="product-price" class="product-price"></p>
-
+            <p id="product-description" class="product-description"></p> <!-- Aquí está la descripción -->
+            <br>
+            <label class="size-label">Seleccione una talla</label>
             <div class="product-sizes">
-                <label for="sizes">Tallas disponibles:</label>
-                <select id="sizes">
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                </select>
+                <button class="size-option">XS</button>
+                <button class="size-option">S</button>
+                <button class="size-option">M</button>
+                <button class="size-option">L</button>
+                <button class="size-option">XL</button>
+                <button class="size-option">XXL</button>
             </div>
 
             <button class="add-to-cart">Agregar al carrito</button>
@@ -59,8 +61,43 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p>© 2024 | Angora Sport Shop | All Rights Reserved.</p>
+    <footer class="footer">
+        <div class="footer-section pages">
+            <div class="page-info">
+                <h3> My Account </h3>
+                <a href="#"> Login </a>
+            </div>
+            <div class="page-info">
+                <h3> Help </h3>
+                <a href="#"> Contact </a>
+            </div>
+            <div class="page-info">
+                <h3> Pages </h3>
+                <a href="#"> Blog </a>
+                <a href="#"> About Us </a>
+            </div>
+        </div>
+        <div class="footer-section payment">
+            <img src="imagenes/cc-visa.png" alt="Visa" class="payment-icon">
+            <img src="imagenes/american-express.png" alt="Amex" class="payment-icon">
+            <img src="imagenes/cc-apple-pay.png" alt="Apple Pay" class="payment-icon">
+        </div>
+
+        <div class="footer-section social">
+            <p> Follow us on:</p>
+            <div class="social-icons">
+                <a href="#"><img src="imagenes/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagenes/tik-tok.png" alt="TikTok"></a>
+                <a href="#"><img src="imagenes/twitter-alt.png" alt="Twitter"></a>
+                <a href="#"><img src="imagenes/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagenes/pinterest.png" alt="Pinterest"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <hr>
+            <p>© 2024 | Angora Sport Shop | All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -225,6 +262,7 @@ const products = {
             document.getElementById("product-price").innerText = product.price;
             document.getElementById("product-image").src = product.image;
             document.getElementById("product-image").alt = product.name;
+            document.getElementById("product-description").innerText = product.description;
         } else {
             document.getElementById("product-detail").innerHTML = "<p>Producto no encontrado.</p>";
         }
