@@ -161,3 +161,37 @@ footer {
 footer p {
     margin: 0;
 }
+
+
+/* Contenedor del botón */
+.button-container {
+    position: absolute; /* Posiciona el botón de forma relativa al viewport */
+    top: 150px; /* Espaciado debajo del navbar */
+    left: 20px; /* Espaciado desde el borde izquierdo */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Estilo del botón */
+.button-regresar {
+    padding: 10px 15px; /* Espaciado interno */
+    background-color: #fff; /* Color azul */
+    color: #185a6b; /* Texto blanco */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor a mano */
+    transition: background-color 0.3s ease; /* Animación suave */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+/* Efectos al pasar el mouse */
+.button-regresar:hover {
+    background-color: #f4f4f4; /* Azul más oscuro */
+}
+
+/* Efectos al presionar */
+.button-regresar:active {
+    background-color: #003d80; /* Azul más oscuro */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reducida */
+}
+
