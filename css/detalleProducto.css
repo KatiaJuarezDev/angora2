@@ -147,22 +147,6 @@ header nav {
     background-color: #185a6b;
 }
 
-/* Diseño de footer */
-footer {
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    border-top: 1px solid #ddd;
-    margin-top: 40px;
-}
-
-footer p {
-    margin: 0;
-}
-
-
 /* Contenedor del botón */
 .button-container {
     position: absolute; /* Posiciona el botón de forma relativa al viewport */
