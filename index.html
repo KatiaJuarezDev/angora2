@@ -1,3 +1,11 @@
+<?php
+session_start(); // Asegúrate de iniciar la sesión
+
+// Verificar si el usuario ha iniciado sesión
+$isAuthenticated = isset($_SESSION['usuario_id']);
+$usuarioNombre = $isAuthenticated ? $_SESSION['usuario_nombre'] : ''; // Obtener el nombre del usuario
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,7 +219,7 @@
             </div>
             <div class="page-info">
                 <h3> Pages </h3>
-                <a href="#"> Blog </a>
+                <a href="blog.html"> Blog </a>
                 <a href="#"> About Us </a>
             </div>
         </div>
