@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color: #ffffff;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_nav{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.contenedor_menu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu_nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.item_nav{
+    margin: 0 15px;
+    color: #000000;
+}
+
+.item_link{
+    color: #000000;
+    text-decoration: none;
+    font-size: 25px;
+    transition: color 0.3s ease;
+}
+
+.item_link:hover{
+    color: #000000;
+    text-decoration: underline;
+}
+
+#logo{
+    width: 150px;
+}
+#logo:hover{
+    transform: scale(1.10);
+    transition: transform 0.4s;
+}
+
+#contenedor_buscar{
+    padding-right: 10px;
+}
+
+.contenedor_perfil {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-right: 10px;
+}
+
+.contenedor_perfil input {
+    width: 250px;
+    padding: 10px 10px;
+    padding-left: 45px;
+    border: 2px solid #185a6b;
+    border-radius: 5px;
+    background: url('imagenes/buscar.png') no-repeat 7px center;
+    background-size: 27px 27px;
+}
+
+.contenedor_perfil img {
+    text-decoration: none;
+    padding-right: 15px;
+    width: 30px;
+}
+.contenedor_perfil img:hover {
+    transform: scale(1.10);
+    transition: transform 0.4s;
+}
+
+/**Cuenta**/
+.principal {
+
+    h1 {
+        padding-top: 3rem;
+        text-align: center;
+    }
+
+    .opciones {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            margin-left: 9.5rem;
+        }
+
+        .cerrar-sesion {
+            margin-top: 1rem;
+            margin-right: 3rem;
+            a {
+                text-decoration: none;
+            }
+        }
+        
+        
+    }
+
+    .informacion-usuario {
+        display: flex;
+        .direccion {
+            
+            margin-top: 7rem;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            width: 50rem;
+            height: 23rem;
+            border-radius: 1rem;
+
+            h2 {
+                margin-top: .2rem;
+                font-size: 2rem;
+                text-align: center;
+            }
+
+
+            .informacion-direccion {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: space-between;
+                margin-left: 2rem;
+
+            }
+
+            .botones-direccion {
+
+                padding-top: 1rem;
+                display: flex;
+                justify-content: space-between;
+                .editar {
+                    background-color: #185a6b;
+                    border: none;
+                    padding: .6rem 4rem;
+                    color: white;
+                    border-radius: .3rem;
+                    font-size: 1.2rem;
+                    margin-right: 5rem;
+                    &:hover {
+                        background-color: #054150;
+                        cursor: pointer;
+                    }
+                }
+
+                .agregar {
+                    background-color: rgba(0, 128, 0, 0.758);
+                    border: none;
+                    padding: .6rem 4rem;
+                    color: white;
+                    border-radius: .3rem;
+                    font-size: 1.2rem;
+                    margin-left: 5rem;
+                    &:hover {
+                        background-color: green;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+            
+        }
+
+
+    }
+
+    .perfil {
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-radius: 1rem;
+        margin: 1rem 7rem;
+        width: 25rem;
+        height: 30rem;
+        text-align: center;
+       
+        .icono-perfil {
+            img {
+                margin-top: 1rem;
+                width: 15rem;
+            }
+        }
+
+        .editar {
+            background-color: #185a6b;
+            border: none;
+            padding: .6rem 4rem;
+            color: white;
+            border-radius: .3rem;
+            font-size: 1.2rem;
+            &:hover {
+                background-color: #054150;
+                cursor: pointer;
+            }
+        }
+
+
+
+        
+    }
+
+    .cerrar-sesion {
+
+        .boton-cerrar {
+            border: none;
+            padding: .5rem 1.5rem;
+            background-color: red;
+            color: white;
+            border-radius: .3rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            &:hover {
+                background-color: rgb(122, 0, 0);
+                cursor: pointer;
+            }
+        }
+    }
+
+    
+
+    
+}

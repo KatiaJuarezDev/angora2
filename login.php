@@ -5,7 +5,6 @@ $dbname = 'angora';
 $username = 'root';
 $password = '';
 
-
 // Crear conexión
 $conexion = new mysqli($host, $username, $password, $dbname);
 
@@ -14,14 +13,12 @@ if ($conexion->connect_error) {
     die("Error en la conexión: " . $conexion->connect_error);
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-
     // Verificar si se envió el formulario de login
     if (isset($_POST['form_type']) && $_POST['form_type'] === 'login') {
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $alertas = [];
 
         // Validaciones básicas
         if (empty($email)) {
@@ -42,47 +39,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if ($usuario['password'] === $password) {
                     // Login exitoso: guardar la información en la sesión
+                    session_start();
                     $_SESSION['usuario_id'] = $usuario['id'];  // Guarda el ID del usuario
                     $_SESSION['usuario_email'] = $usuario['email']; // Guarda el email del usuario
+                    $_SESSION['usuario_nombre'] = $usuario['nombre'];
+                    $_SESSION['usuario_apellido'] = $usuario['apellido'];
+                    $_SESSION['usuario_telefono'] = $usuario['telefono'];
+                    $_SESSION['usuario_password'] = $usuario['password'];   
+
 
                     // Redirigir a la página principal después de un login exitoso
-                    header('Location: /index.html');
+                    header('Location: /index.php');
                     exit();
                 } else {
                     $alertas[] = 'La contraseña es incorrecta';
                 }
             } else {
                 $alertas[] = 'El email no está registrado';
+
+                if (empty($email)) {
+            $alertas[] = 'El email es obligatorio';
+        }
+
+        if (empty($password)) {
+            $alertas[] = 'El password es obligatorio';
+        }
             }
         }
     }
 
+    elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
+        // Procesar el formulario de Registro
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $email = $_POST['email'];
+        $telefono = $_POST['telefono'];
+        $password = $_POST['password'];
+        $alertas2 = [];
 
-        elseif (isset($_POST['form_type']) && $_POST['form_type'] === 'register') {
-            // Procesar el formulario de Registro
-            $id = $_POST['id'];
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $email = $_POST['email'];
-            $telefono = $_POST['telefono'];
-            $password = $_POST['password'];
-            $admin = $_POST['admin'] ?? 0;
+        // Validar si algún campo está vacío
+        if (empty($nombre) || empty($apellido) || empty($email) || empty($telefono) || empty($password)) {
+            $alertas2[] = 'No se pueden dejar campos vacíos';
+        }
+    
+        // Si no hay alertas2, intenta registrar al usuario
+        if (empty($alertas2)) {
             $sql = "INSERT INTO usuarios (nombre, apellido, email, telefono, password) 
                     VALUES ('$nombre', '$apellido', '$email', '$telefono', '$password')";
-            $conexion->query($sql);
-            if($conexion) {
-                header('Location : /login.php');
-            }
-        
-        
-        }
-}     
-        
-        
-
-
     
-
+            // Si la inserción es exitosa, redirigir al login
+            if ($conexion->query($sql) === TRUE) {
+                header('Location: /login.php'); // Redirige en caso de éxito
+                exit();
+            } else {
+                $alertas2[] = 'Hubo un error al registrar el usuario.';
+            }
+        }
+    }
+    
+    
+}     
 
 ?>
 
@@ -119,9 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <div class="centrar">
-
-        
-
         <div class="container-form login">
             <div class="information">
                  <div class="info-childs">
@@ -173,6 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-information">
                 <div class="form-information-childs">
                     <h2>Crear una cuenta</h2>
+
                     <div class="icons">
     
                     </div>
@@ -180,24 +194,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="hidden" name="form_type" value="register"> <!-- Identificador de formulario --> 
                         <label for="nombre">
                             <i class='bx bx-user'></i>
-                            <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre">
+                            <input type="text" name="nombre" id="nombre" placeholder="Tu Nombre" required>
                         </label>
                         <label for="apellido">
                             <i class='bx bx-user'></i>
-                            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+                            <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
                         </label>
                         <label for="email">
                             <i class='bx bx-envelope' ></i>
-                            <input type="email" placeholder="Tu Correo Electronico" name="email" id="email">
+                            <input type="email" placeholder="Tu Correo Electronico" name="email" id="email" required>
                         </label for="">
                         <label for="telefono">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="tel" placeholder="Tu Telefono" name="telefono" id="telefono">
+                            <input type="tel" placeholder="Tu Telefono" name="telefono" id="telefono" required>
                         </label>
 
                         <label for="password">
                             <i class='bx bx-lock-alt' ></i>
-                            <input type="password" placeholder="Tu Contraseña" name="password" id="password">
+                            <input type="password" placeholder="Tu Contraseña" name="password" id="password" required>
                         </label>
                         <input type="submit" value="Registrarse">
                     </form>
