@@ -25,8 +25,13 @@ document.getElementById('payment-form').addEventListener('submit', function(even
         return;
     }
 
-    // Si todo está correcto
-    alert(`Pago procesado correctamente. Tarjeta asociada al banco: ${bank}`);
+    // Mostrar mensaje de éxito
+    showSuccessMessage(`Pago procesado correctamente. Tarjeta asociada al banco: ${bank}`);
+
+    // Redirigir a la página principal después de 3 segundos
+    setTimeout(() => {
+        window.location.href = "index.html"; // Cambia "index.html" por la URL de tu página principal
+    }, 3000);
 });
 
 // Simulación de validación de bancos con BIN
@@ -38,4 +43,25 @@ function getBankFromBIN(bin) {
     };
 
     return binDatabase[bin] || null;
+}
+
+// Mostrar mensaje de éxito
+function showSuccessMessage(message) {
+    const successMessage = document.createElement('div');
+    successMessage.id = 'success-message';
+    successMessage.textContent = message;
+    document.body.appendChild(successMessage);
+
+    // Estilo del mensaje (puedes mover esto a tu archivo CSS)
+    successMessage.style.position = 'fixed';
+    successMessage.style.top = '50%';
+    successMessage.style.left = '50%';
+    successMessage.style.transform = 'translate(-50%, -50%)';
+    successMessage.style.padding = '20px';
+    successMessage.style.backgroundColor = '#4caf50';
+    successMessage.style.color = '#fff';
+    successMessage.style.fontSize = '18px';
+    successMessage.style.borderRadius = '8px';
+    successMessage.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    successMessage.style.zIndex = '1000';
 }
