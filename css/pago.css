@@ -37,7 +37,7 @@ input, select, textarea, button {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #000;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #185a6b;
 }
 
 /* Contenedor del campo de número de tarjeta */
