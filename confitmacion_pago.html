@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="menu_principal.css">
     <link rel="stylesheet" href="css/landing.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/pago.css">
+    <link rel="stylesheet" href="css/detalleProducto.css">
     <link rel="icon" href="imagenes/angoraFavicon.png" type="image/x-icon">
 
 </head>
@@ -43,6 +44,59 @@
             </div>
         </nav>
     </header>
+
+    <div class="checkout-container">
+        <!-- Información de envío -->
+        <form id="shipping-form">
+            <h2>Detalles de envío</h2>
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" placeholder="Calle, número, colonia" required>
+
+            <label for="zip">Código postal:</label>
+            <input type="text" id="zip" name="zip" placeholder="Código postal" required>
+
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" name="city" placeholder="Ciudad" required>
+
+            <label for="country">País:</label>
+            <select id="country" name="country" required>
+                <option value="" disabled selected>Selecciona tu país</option>
+                <option value="mx">México</option>
+                <option value="us">Estados Unidos</option>
+                <!-- Más países -->
+            </select>
+
+            <label for="reference">Referencia (opcional):</label>
+            <textarea id="reference" name="reference" placeholder="Instrucciones para la entrega"></textarea>
+        </form>
+
+            <!-- Información de pago -->
+        <form id="payment-form">
+            <h2>Detalles de pago</h2>
+            <div class="card-input-container">
+                <label for="card-number">Número de tarjeta:</label>
+                <div class="card-field">
+                    <img src="card-icon.png" alt="Tarjeta de Crédito" class="card-icon">
+                    <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required maxlength="16">
+                </div>
+            </div>
+
+            <label for="expiry-date">Fecha de vencimiento:</label>
+            <input type="month" id="expiry-date" name="expiry-date" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required maxlength="3">
+
+            <label for="cardholder-name">Nombre del titular:</label>
+            <input type="text" id="cardholder-name" name="cardholder-name" placeholder="Como aparece en la tarjeta" required>
+
+            <button type="submit" id="pay-button">Pagar</button>
+</form>
+
+    </div>
 
     <footer class="footer">
         <div class="footer-section pages">
@@ -82,6 +136,9 @@
             <p>© 2024 | Angora Sport Shop | All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Vincula el archivo de JavaScript -->
+    <script src="scriptPago.js"></script>
 
 </body>
 </html>
