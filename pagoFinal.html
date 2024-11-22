@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Angora´s Official Blog </title>
+    <link rel="stylesheet" href="menu_principal.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pagoTargeta.css">
+    <link rel="stylesheet" href="css/detalleProducto.css">
+    <link rel="icon" href="imagenes/angoraFavicon.png" type="image/x-icon">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="contenedor_nav">
+                <a href="index.html">
+                    <img id="logo" src="imagenes/angora_logo.png" alt="Logotipo de Angora Sport Shop">
+                </a>
+                <div class="contenedor_menu">
+                    <ul class="menu_nav">
+                      <li class="item_nav">
+                        <a href="mens.html" class="item_link">
+                          <p> Men's </p>
+                        </a>
+                      </li>
+                      <li class="item_nav">
+                        <a href="womens.html" class="item_link">
+                          <p> Women's </p>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  
+            <div class="contenedor_perfil">
+                <div id="contenedor_buscar">
+                    <input type="text" name="buscar" id="buscar" placeholder="Buscar">
+                </div>
+                <a href="login.php"> <img src="imagenes/login.png" alt="Login"> </a>
+                <a href="#"> <img src="imagenes/corazon.png" alt="Lista de Deseos"> </a>
+                <a href="#"> <img src="imagenes/bolsa_compras.png" alt="Compras"> </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="payment-container">
+        <form id="payment-form" action="procesar_pago.php" method="POST">
+            <h2>Detalles de Pago</h2>
+    
+    
+            <label for="card-number">Número de tarjeta:</label>
+            <input type="text" id="card-number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+    
+            <label for="expiry-date">Fecha de expiración:</label>
+            <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/AA" maxlength="5" required>
+    
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" placeholder="XXX" maxlength="3" required>
+
+    
+            <button type="submit" class="pay-button">Pagar Ahora</button>
+        </form>
+    </div>
+
+    <!-- Modal de Pago Completado -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <h2>¡Pago Completado!</h2>
+        <p>Tu pago se ha realizado con éxito. Gracias por tu compra.</p>
+        <button id="close-modal" class="close-button">Cerrar</button>
+    </div>
+</div>
+
+    
+
+    <footer class="footer">
+        <div class="footer-section pages">
+            <div class="page-info">
+                <h3> My Account </h3>
+                <a href="#"> Login </a>
+            </div>
+            <div class="page-info">
+                <h3> Help </h3>
+                <a href="contanco.html"> Contact </a>
+            </div>
+            <div class="page-info">
+                <h3> Pages </h3>
+                <a href="blog.html"> Blog </a>
+                <a href="nosotros.html"> About Us </a>
+            </div>
+        </div>
+        <div class="footer-section payment">
+            <img src="imagenes/cc-visa.png" alt="Visa" class="payment-icon">
+            <img src="imagenes/american-express.png" alt="Amex" class="payment-icon">
+            <img src="imagenes/cc-apple-pay.png" alt="Apple Pay" class="payment-icon">
+        </div>
+
+        <div class="footer-section social">
+            <p> Follow us on:</p>
+            <div class="social-icons">
+                <a href="#"><img src="imagenes/instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="imagenes/tik-tok.png" alt="TikTok"></a>
+                <a href="#"><img src="imagenes/twitter-alt.png" alt="Twitter"></a>
+                <a href="#"><img src="imagenes/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="imagenes/pinterest.png" alt="Pinterest"></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <hr>
+            <p>© 2024 | Angora Sport Shop | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Vincula el archivo de JavaScript -->
+    <script src="scriptTarjeta.js"></script>
+
+</body>
+</html>
