@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalButton = document.getElementById('close-modal');
 
     paymentForm.addEventListener('submit', (event) => {
-        // Evitar envío del formulario hasta que se validen los campos
+        // Evitar el envío del formulario hasta que se validen los campos
         event.preventDefault();
 
         if (validateForm()) {
@@ -13,17 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Cierra automáticamente después de 2 segundos y redirige al index
             setTimeout(() => {
-                modal.style.display = 'none';
-                window.location.href = 'index.html'; // Redirige al index
+                redirectToIndex();
             }, 2000);
         }
     });
 
     // Cerrar el modal manualmente
     closeModalButton.addEventListener('click', () => {
-        modal.style.display = 'none';
-        window.location.href = 'index.html'; // Redirige al index al cerrar
+        redirectToIndex();
     });
+
+    // Función para redirigir al index.html
+    function redirectToIndex() {
+        modal.style.display = 'none'; // Asegura que el modal desaparezca
+        window.location.href = 'index.html'; // Redirige al index.html
+    }
 
     function validateForm() {
         // Campos del formulario
