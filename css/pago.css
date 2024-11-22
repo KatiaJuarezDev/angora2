@@ -35,3 +35,33 @@ input, select, textarea, button {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+
+        /* Estilo para centrar el botón */
+        .checkout-container {
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        .continue-button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .continue-button:hover {
+            background-color: #185a6b;
+        }
+.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}      
+        
+    
